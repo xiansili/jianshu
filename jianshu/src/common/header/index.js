@@ -27,8 +27,8 @@ class Header extends Component {
             <NavSearch />
           </Nav>
           <Addtion>
-            <Button>注册</Button>
-            <Button>写文章</Button>
+            <Button className="sign">注册</Button>
+            <Button className="write">写文章</Button>
           </Addtion>
         </Wrapper>
       </HeaderWrapper>
