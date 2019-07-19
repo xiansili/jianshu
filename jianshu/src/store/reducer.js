@@ -1,18 +1,9 @@
-const defaultState = {
-  focused: false,
-};
+import { combineReducers } from 'redux';
+import { reducer as headerReducer } from '../common/header/store';
 
-//纯函数给定固定的输入就有固定的输出，而且不含有副作用
-export default (state = defaultState, action) => {
-  if (action.type === "search-focus") {
-    return {
-      focused: true
-    };
-  }
-  if (action.type === "search-blur") {
-    return {
-      focused: false
-    };
-  }
-  return state;
-};
+
+const reducer = combineReducers({
+    header: headerReducer
+})
+
+export default reducer;

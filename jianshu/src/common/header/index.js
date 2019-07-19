@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { CSSTransition } from 'react-transition-group';
+import React from "react";
+import { CSSTransition } from "react-transition-group";
 
 //header和store建立连接
 import { connect } from "react-redux";
@@ -15,66 +15,62 @@ import {
   Wrapper
 } from "./style";
 
-class Header extends Component {
-  render() {
-    return (
-      <HeaderWrapper>
-        <Wrapper>
-          <Logo>
-            <img src={logoPic} alt="logo" />
-          </Logo>
-          <Nav>
-            <NavItem className="left active">首页</NavItem>
-            <NavItem className="left">下载APP</NavItem>
-            <NavItem className="right">登录</NavItem>
-            <NavItem className="right">Aa</NavItem>
-            <CSSTransition
+const Header = props => {
+  return (
+    <HeaderWrapper>
+      <Wrapper>
+        <Logo>
+          <img src={logoPic} alt="logo" />
+        </Logo>
+        <Nav>
+          <NavItem className="left active">首页</NavItem>
+          <NavItem className="left">下载APP</NavItem>
+          <NavItem className="right">登录</NavItem>
+          <NavItem className="right">Aa</NavItem>
+          <CSSTransition
             timeout={200}
-            in={this.props.focused}
+            in={props.focused}
             classNames="slide"
-            >
-              <NavSearch
-                onFocus={this.props.handleInputFocus}
-                onBlur={this.props.handleInputBlur}
-                className={this.props.focused ? "focused" : ""}
-              />
-            </CSSTransition>
-          </Nav>
-          <Addtion>
-            <Button className="sign">注册</Button>
-            <Button className="write">写文章</Button>
-          </Addtion>
-        </Wrapper>
-      </HeaderWrapper>
-    );
-  }
-}
+          >
+            <NavSearch
+              onFocus={props.handleInputFocus}
+              onBlur={props.handleInputBlur}
+              className={props.focused ? "focused" : ""}
+            />
+          </CSSTransition>
+        </Nav>
+        <Addtion>
+          <Button className="sign">注册</Button>
+          <Button className="write">写文章</Button>
+        </Addtion>
+      </Wrapper>
+    </HeaderWrapper>
+  );
+};
 
 //映射关系
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     //输入框
-    focused: state.focused
+    focused: state.header.focused
   };
 };
 
-
 //改变内容
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    handleInputFocus(){
+    handleInputFocus() {
       const action = {
-        type: 'search-focus'
+        type: "search-focus"
       };
       dispatch(action);
     },
-    handleInputBlur(){
+    handleInputBlur() {
       const action = {
-        type: 'search-blur'
+        type: "search-blur"
       };
       dispatch(action);
     }
-
   };
 };
 
