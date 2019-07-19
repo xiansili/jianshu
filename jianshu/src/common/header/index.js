@@ -53,9 +53,9 @@ const Header = props => {
 const mapStateToProps = state => {
   return {
     //输入框
-    focused: state.header.focused
-  };
-};
+    focused: state.getIn(['header','focused'])
+  }
+}
 
 //改变内容
 const mapDispatchToProps = dispatch => {
