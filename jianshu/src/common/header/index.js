@@ -1,5 +1,6 @@
 import React from "react";
 import { CSSTransition } from "react-transition-group";
+import {actionCreators} from './store'
 
 //header和store建立连接
 import { connect } from "react-redux";
@@ -60,16 +61,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     handleInputFocus() {
-      const action = {
-        type: "search-focus"
-      };
-      dispatch(action);
+      dispatch(actionCreators.searchFocus());
     },
     handleInputBlur() {
-      const action = {
-        type: "search-blur"
-      };
-      dispatch(action);
+      dispatch(actionCreators.searchBlur());
     }
   };
 };
