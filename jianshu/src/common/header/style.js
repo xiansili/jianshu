@@ -59,7 +59,7 @@ export const NavSearch = styled.input.attrs({
   placeholder: "搜索"
 })`
   height: 38px;
-  width: 240px;
+  width: 160px;
   border-radius: 19px;
   outline: none;
   border: none;
@@ -72,6 +72,21 @@ export const NavSearch = styled.input.attrs({
   &:: {
     color: #999;
   }
+  &.focused {
+    width: 240px;
+  }
+  &.slide-enter {
+    transition: all .2s ease-out;
+  }
+  &.slide-enter-active {
+    width: 240px;
+  }
+  &.slide-exit {
+    transition: all .2s ease-out;
+  }
+  &.slide-exit-active {
+    width: 160px;
+  }
 `;
 
 export const Addtion = styled.div`
@@ -82,9 +97,9 @@ export const Addtion = styled.div`
 `;
 
 export const Button = styled.div`
-  float:left;
-  text-align:center;
-  
+  float: left;
+  text-align: center;
+
   &.sign {
     width: 80px;
     height: 38px;
