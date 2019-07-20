@@ -1,3 +1,4 @@
+//全局样式初始化
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
